@@ -1,4 +1,15 @@
 body {
+	text-align: center;
+	background-color: lightblue;
+}
+
+.rules {
+	align-items: center;
+	display: inline-block;
+}
+
+.rules_item {
+	padding: 6px;
 }
 
 h1 {
