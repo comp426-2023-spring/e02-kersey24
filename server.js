@@ -66,60 +66,56 @@ const port = args.port || args.p || process.env.PORT || 8080
 // Load app middleware here to serve routes, accept data requests, etc.
 //
 
-app.get("/app/", (req, res, next) => {
-    res.json({"message":"200 OK"});
-	res.status(200);
-});
+app.use(express.json());
+app.use(express.urlencoded({ extended: true}));
 
-app.get("/app/rps", (req, res, next) => {
-    res.json(rps());
-	res.status(200);
-});
+// Check endpoint @ /app
+app.get('/app', (req, res) => {
+    res.status(200).send("200 OK");
+})
 
-app.get("/app/rpsls", (req, res, next) => {
-    res.json(rpsls());
-	res.status(200);
-});
+// check endpoint at /app/rps
+app.get('/app/rps/', (req, res) => {
+    res.status(200).send(JSON.stringify(rps()));
+})
 
-app.get("/app/rps/play", (req, res, next) => {
-    res.json(rps(req.query.shot));
-	res.status(200);
-});
+// /app/rpsls endpoint
+app.get('/app/rpsls/', (req, res) => {
+    res.status(200).send(JSON.stringify(rpsls()));
+})
 
+// /app/rps/play endpoint (bodies & params)
+app.get('/app/rps/play/', (req, res) => { //rps URLEncoded
+    res.status(200).send(JSON.stringify(rps(req.query.shot)));
+})
 
-app.get("/app/rpsls/play", (req, res, next) => {
-    res.json(rpsls(req.query.shot));
-	res.status(200);
-});
+app.post('/app/rps/play/', (req, res) => { //rps JSON
+    res.status(200).send(JSON.stringify(rps(req.body.shot)));
+})
 
+app.get('/app/rps/play/:shot', (req, res) => { //rps shot params
+    res.status(200).send(JSON.stringify(rps(req.params.shot)));
+})
 
-app.post("/app/rps/play", (req, res, next) => {
-    res.json(rps(req.body.shot));
-	res.status(200);
-});
+// /app/rpsls/play endpoint
+app.get('/app/rpsls/play/', (req, res) => { //rpsls URLEncoded
+    res.status(200).send(JSON.stringify(rpsls(req.query.shot)));
+})
 
+app.post('/app/rpsls/play/', (req, res) => { //rpsls JSON
+    res.status(200).send(JSON.stringify(rpsls(req.body.shot)));
+})
 
-app.post("/app/rpsls/play", (req, res, next) => {
-    res.json(rpsls(req.body.shot));
-	res.status(200);
-});
-
-app.get("/app/rps/play/:shot", (req, res, next) => {
-    res.json(rps(req.params['shot']));
-	res.status(200);
-});
-
-
-app.get("/app/rpsls/play/:shot", (req, res, next) => {
-    res.json(rpsls(req.params.shot));
-	res.status(200);
-});
+app.get('/app/rpsls/play/:shot', (req, res) => { //rpsls shot params
+    res.status(200).send(JSON.stringify(rpsls(req.params.shot)));
+})
 
 
-app.all('/app/*', (req, res, next) => {
-	res.json({"message":"404 NOT FOUND"});
-    res.status(404);
-});
+// default endpoint)
+app.get("/app/*", (req, res) => {
+    res.status(404).send("404 NOT FOUND");
+})
+
 // Create and update access log
 // The morgan format below is the Apache Foundation combined format but with ISO8601 dates
 app.use(morgan(':remote-addr - :remote-user [:date[iso]] ":method :url HTTP/:http-version" :status :res[content-length] ":referrer" ":user-agent"',

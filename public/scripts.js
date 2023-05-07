@@ -11,7 +11,7 @@ const type = document.getElementById("gameType");
 
 function showMoves() {
 	clearMoves();
-	if (document.getElementById('rps').checked) {
+	if (document.getElementById("rps").checked) {
 		for(var i = 0; i < rps_moves.length; i++) {
 			var move = rps_moves[i];
 			var pick = document.createElement("option");
@@ -19,13 +19,13 @@ function showMoves() {
 			pick.value = move;
 			choose.appentChild(pick);
 		}
-	} else if (document.getElementById('rpsls').checked) {
+	} else if (document.getElementById("rpsls").checked) {
     		    for(var i = 0; i < rpsls_moves.length; i++) {
             		var move = rpsls_moves[i];
             		var pick  = document.createElement("option");
        		        pick.textContent = move;
        		        pick.value = move;
-           	        choose.appendChild(x);
+           	        choose.appendChild(pick);
         }
     }
 }
@@ -39,16 +39,16 @@ function clearMoves() {
 
 async function play() {
     let gametype = ""
-    if (document.getElementById('rps').checked) {
+    if (document.getElementById("rps").checked){
         gametype = "rps";
-    } else if (document.getElementById('rpsls').checked) {
+    } else if (document.getElementById("rpsls").checked) {
         gametype  = "rpsls";
     }
 
     let gamemode = ""
-    if (document.getElementById('opponent').checked) {
+    if (document.getElementById("opponent").checked) {
         gamemode = "opponent";
-    } else if (document.getElementById('random').checked) {
+    } else if (document.getElementById("random").checked) {
         gamemode = "random";
     }
 
@@ -68,7 +68,7 @@ async function play() {
     if (gamemode == "random") {
         output.textContent = `${data.player}!`
     } else {
-        output.textContent = `You: ${data.player}...`
+        output.textContent = `You: ${data.player}`
         output2.textContent = `Opponent: ${data.opponent}`
         output3.textContent = `${data.result}!`
     }
