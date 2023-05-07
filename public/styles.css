@@ -1,12 +1,11 @@
 body {
 	font-family:monospace;
-	text-align: center;
 	background-color: lightblue;
+	font-size:20px;
 }
 
 .rules {
 	align-items: center;
-	display: inline-block;
 }
 
 .rules_item {
