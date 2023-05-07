@@ -16,7 +16,7 @@
 	<br>
 	<div class="options">
 		<div class="vert">
-			<h2 class="title"> Select Game-Type</h2>
+			<h2 class="title">Game-Type</h2>
 			<div class="horz">
 				<input type="radio" id="rpsls" name="gameType" value="rpsls">
 				<label for="rpsls">Rock, Paper, Scissors, LIZZARD, SPOCK</label>
@@ -25,10 +25,10 @@
 				<input type="radio" id="rps" name="gameType" value="rps">
 				<label for="rps">Rock, Paper, Scissors</label>
 			</div>
-			<button type="button" class="button" onclick="showMoves()">Load Moves</button>
+			
 		</div>
 		<div class="vert">
-			<h2 class="title"> Select Game-Mode</h2>
+			<h2 class="title">Game-Mode</h2>
 			<div class="horz">
 				<input type="radio" id="random" name="gameMode" value="random">
 				<label for="random">Random</label>
@@ -40,8 +40,9 @@
 		</div>
 		<br>
 		<div class="vert">
-			<h2 class="title">Select Your Move!</h2>
+			<h2 class="title">Select Move</h2>
 			<div class="horz">
+				<button type="button" class="button" onclick="showMoves()">Show Moves</button>
 				<div id="move">
 					<select id="moves">
 					</select>
@@ -50,7 +51,7 @@
 		</div>
 		<br>
 		<div class="horz">
-			<button type="button" id="play" onclick="play()">Play</button>
+			<button type="button" id="play" onclick="play()">Shoot!</button>
 			<button type="button"  id="startOver" onclick="reset()">Reset</button>
 		</div>
 	</div>
