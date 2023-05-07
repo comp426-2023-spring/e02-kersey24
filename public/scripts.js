@@ -31,7 +31,7 @@ function showMoves() {
 }
 
 function clearMoves() {
-	var i, L = select.options.length - 1;
+	var i, L = choose.option.length - 1;
 	for (i = L; i >= 0; i--) {
 		choose.remove(i);
 	}
@@ -59,7 +59,7 @@ async function play() {
         url = `/app/${gametype}/play/${move}`;
         console.log(url)
     } else {
-        url = `/app/${gt}/play/`;
+        url = `/app/${gametype}/play/`;
     }
 
     const response = await fetch(url)
