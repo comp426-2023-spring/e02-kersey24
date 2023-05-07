@@ -6,6 +6,7 @@
   "type": "module",
   "scripts": {
     "test": "nodemon -e js,css,html server.js --port=5000 --debug",
+    "dev": "nodemon -e js,css,html server.js --port=8081 --debug",
     "start": "node server.js",
     "demo": "nodemon -e js,css,html server.js --port=5000 --stat=demo"
   },
