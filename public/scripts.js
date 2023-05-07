@@ -31,7 +31,7 @@ function showMoves() {
 }
 
 function clearMoves() {
-	var i, L = choose.option.length - 1;
+	var i, L = choose.options.length - 1;
 	for (i = L; i >= 0; i--) {
 		choose.remove(i);
 	}
