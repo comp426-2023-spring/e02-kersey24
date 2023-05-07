@@ -5,10 +5,9 @@
   "main": "server.js",
   "type": "module",
   "scripts": {
-    "test": "nodemon -e js,css,html server.js --port=5000 --debug",
-    "dev": "nodemon -e js,css,html server.js --port=8081 --debug",
+    "test": "nodemon -e js,css,html server.js --port=5050 --debug",
     "start": "node server.js",
-    "demo": "nodemon -e js,css,html server.js --port=5000 --stat=demo"
+    "demo": "nodemon -e js,css,html server.js --port=5050 --stat=demo"
   },
   "keywords": [
     "node",
@@ -21,7 +20,7 @@
     "express",
     "server"
   ],
-  "author": "@jdmar3",
+  "author": "kersey24",
   "license": "GPL-3.0-or-later",
   "dependencies": {
     "express": "^4.18.2",
